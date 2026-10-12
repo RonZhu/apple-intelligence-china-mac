@@ -83,6 +83,9 @@ Apple Intelligence / Siri AI 要跑起来，要过**三道关**：
 | 8 | [故障排查：症状 → 原因 → 解法](docs/08-故障排查.md) | — |
 | 9 | [完全回退到原厂安全状态](docs/09-完全回退.md) | 30 分钟 |
 
+给 AI 助手用的 Skill：
+- [`skills/china-mac-apple-intelligence/`](skills/china-mac-apple-intelligence/SKILL.md)：把本指南写成 AI 助手（如 Claude Code）可执行的"关卡式"操作手册。AI 先只读体检、判断卡在哪一关、每次只给下一步；所有需要管理员密码、恢复模式、系统批准的操作都**由你本人执行**，AI 不会代输密码。安装方法：把该文件夹复制到 `~/.claude/skills/`，然后对 AI 说"帮我在国行 Mac 上开 Apple Intelligence"。网络部分只在 Surge for Mac 上验证过。
+
 辅助脚本：
 - [`scripts/check-status.sh`](scripts/check-status.sh)：只读体检，一次看清 SIP、地区、内核扩展、资格、语言。
 - [`scripts/auto-eligibility-fix/`](scripts/auto-eligibility-fix/)：开机自动恢复资格（第 7 步）。

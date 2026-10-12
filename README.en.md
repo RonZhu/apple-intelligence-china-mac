@@ -32,6 +32,8 @@ Sources: [Apple Intelligence availability](https://support.apple.com/en-us/12111
    - With Tailscale MagicDNS, system DNS is forwarded to local (poisoned) resolvers; this also breaks the final step of ChatGPT-extension sign-in. Fix: `tailscale set --accept-dns=false` and resolve `*.ts.net` via `server:100.100.100.100` in Surge `[Host]`.
    - Never add the `skip-proxy` line to an iPhone profile (iOS ignores `PROCESS-NAME`, so it would break Siri search there).
 
+Agent skill: [`skills/china-mac-apple-intelligence/`](skills/china-mac-apple-intelligence/SKILL.md) — a gate-based runbook for AI coding assistants (e.g. Claude Code): read-only triage first, one next step at a time, and every sudo / Recovery / approval step is handed to the human. Install by copying the folder into `~/.claude/skills/`.
+
 Snippet: [`examples/surge-apple-intelligence.conf`](examples/surge-apple-intelligence.conf). Read-only health check: [`scripts/check-status.sh`](scripts/check-status.sh).
 
 ## License
