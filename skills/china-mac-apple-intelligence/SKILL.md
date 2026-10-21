@@ -1,6 +1,6 @@
 ---
 name: china-mac-apple-intelligence
-description: Guide a user, step by step and evidence-first, through enabling Apple Intelligence and Siri AI (new Siri) on a China-mainland (国行, CH/A) Apple-silicon Mac running macOS 27, and diagnose why it is not working. Use this whenever the user mentions a 国行/China-region Mac together with Apple Intelligence, Siri AI, 新版 Siri, "Siri AI is not available", RegionSpoof / enableMacosAI, eligibility (GREYMATTER) answer 2, Apple Intelligence lost after reboot, Siri web search (天气/新闻/CEO) failing with "Something's wrong" while chat works, or the ChatGPT extension failing at the last sign-in step in China — even if they only describe the symptom. Caveats to tell the user up front: the network part was verified only with Surge for Mac; the boot-time auto-fix is experimental. 用于：国行 Mac 开启 Apple Intelligence / 新版 Siri、资格为 2、重启后失效、Siri 联网搜索报错、ChatGPT 扩展登录失败。
+description: Guide a user, step by step and evidence-first, through enabling Apple Intelligence and Siri AI (new Siri) on a China-mainland (国行, CH/A) Apple-silicon Mac running macOS 27, and diagnose why it is not working. Use this whenever the user mentions a 国行/China-region Mac together with Apple Intelligence, Siri AI, 新版 Siri, "Siri AI is not available", RegionSpoof / enableMacosAI, eligibility (GREYMATTER) answer 2, Apple Intelligence lost after reboot, Siri web search (天气/新闻/CEO) failing with "Something's wrong" while chat works, or the ChatGPT extension failing at the last sign-in step in China — even if they only describe the symptom. Caveats to tell the user up front: the network part was verified only with Surge for Mac; the boot-time auto-fix was verified across three real reboots on one machine. 用于：国行 Mac 开启 Apple Intelligence / 新版 Siri、资格为 2、重启后失效、Siri 联网搜索报错、ChatGPT 扩展登录失败。
 ---
 
 # 国行 Mac 开启 Apple Intelligence / Siri AI（关卡式操作手册）
@@ -62,7 +62,7 @@ description: Guide a user, step by step and evidence-first, through enabling App
 | 4 | 资格 | GREYMATTER 与 SIRI_WITH_APP_INTENTS 都是 **4** | 若地区已是 LL/A 但资格仍 2：请用户保存工作后运行 `sudo launchctl reboot userspace`（docs/05）。不要试 `launchctl kickstart`（SIP 下返回 150）。仍是 2 → 回查关卡 1 |
 | 5 | 资源 | 系统设置 → Siri 显示 *Powered by Apple Intelligence*，资源下载完成；Siri AI App 能新建对话 | 等待下载；出现 Join Waitlist 只能等（服务端分批） |
 | 6 | 网络 | 用户在 Siri 里：不联网的生成问题、*Who is the CEO of Apple*、*今天纽约天气怎么样* 都能回答；需要时 ChatGPT 扩展能登录 | docs/06，按下文"网络诊断"取证 |
-| 7 | 重启持久性 | 普通重启后资格仍是 4 | 每次开机后用户手动 `sudo launchctl reboot userspace`，或安装 `scripts/auto-eligibility-fix/`（docs/07，**实验性**，开机 15 分钟后才能安装） |
+| 7 | 重启持久性 | 普通重启后资格仍是 4 | 每次开机后用户手动 `sudo launchctl reboot userspace`，或安装 `scripts/auto-eligibility-fix/`（docs/07，作者机器已在三次真实重启中验证；开机 15 分钟后才能安装） |
 
 **全部满足时**：明确告诉用户"各关都已通过，不需要再改任何东西"，给出验收方法（在 Siri 里问上面两个问题），提醒关卡 7 的注意事项。不要为了"做点什么"而建议任何修改。
 
